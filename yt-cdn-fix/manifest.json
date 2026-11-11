@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube CDN Fix (googlevideo)",
+  "version": "2.0.0",
+  "description": "Ловит зависания видео на YouTube и временно блокирует нерабочий CDN-узел googlevideo, чтобы плеер переключился на рабочий.",
+  "minimum_chrome_version": "110",
+  "permissions": [
+    "declarativeNetRequest",
+    "storage",
+    "alarms",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "*://*.googlevideo.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ],
+  "action": {
+    "default_title": "YouTube CDN Fix",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouTube CDN Fix</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <span class="dot" id="statusDot"></span>
+      <div>
+        <div class="title">YouTube CDN Fix</div>
+        <div class="subtitle" id="summary">загрузка…</div>
+      </div>
+    </div>
+    <label class="switch" title="Включить / выключить">
+      <input type="checkbox" id="enabled">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <section class="live" id="liveCard">
+    <div class="live-row">
+      <span class="live-label">Сейчас</span>
+      <span class="live-value" id="liveState">нет данных</span>
+    </div>
+    <div class="live-row">
+      <span class="live-label">Узел</span>
+      <span class="live-value mono" id="liveHost">—</span>
+    </div>
+    <div class="live-row">
+      <span class="live-label">Буфер</span>
+      <span class="live-value" id="liveBuffer">—</span>
+    </div>
+  </section>
+
+  <section class="list">
+    <div class="list-head">
+      <span>Заблокированные узлы</span>
+      <span id="counts" class="muted"></span>
+    </div>
+    <div id="hosts" class="hosts"></div>
+    <div id="empty" class="empty">
+      Пока пусто. Если видео зависнет, расширение временно заблокирует
+      проблемный узел — он появится здесь.
+    </div>
+  </section>
+
+  <section class="settings">
+    <div class="row">
+      <label for="blockTtl">Держать блокировку, минут</label>
+      <input type="number" id="blockTtl" min="0" max="60" step="1">
+    </div>
+    <div class="row">
+      <label for="maxBlocked">Максимум узлов сразу</label>
+      <input type="number" id="maxBlocked" min="1" max="20" step="1">
+    </div>
+    <div class="hint">
+      Блокировка снимается автоматически, чтобы не мешать видео, которые
+      лежат в кэше этого же узла. <code>0</code> — держать до перезапуска.
+    </div>
+  </section>
+
+  <section class="actions">
+    <button id="unblockAllBtn" class="secondary">Разблокировать всё</button>
+    <button id="resetBtn" class="danger">Сбросить статистику</button>
+  </section>
+
+  <footer>
+    <span id="statsInfo" class="muted"></span>
+    <span class="muted">v2.0.0</span>
+  </footer>
+
+  <script src="popup.js"></script>
+</body>
+</html>

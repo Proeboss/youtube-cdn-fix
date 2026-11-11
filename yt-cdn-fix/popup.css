@@ -1,0 +1,134 @@
+:root {
+  --bg: #ffffff;
+  --fg: #1f2328;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --accent: #2563eb;
+  --ok: #2e7d32;
+  --bad: #c0392b;
+  --card: #f7f8fa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  width: 340px;
+  margin: 0;
+  padding: 12px;
+  font: 13px/1.45 "Segoe UI", system-ui, sans-serif;
+  color: var(--fg);
+  background: var(--bg);
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.brand { display: flex; align-items: center; gap: 9px; min-width: 0; }
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex: 0 0 auto;
+  box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.15);
+}
+.dot.ok { background: var(--ok); box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.15); }
+.dot.bad { background: var(--bad); box-shadow: 0 0 0 3px rgba(192, 57, 43, 0.15); }
+
+.title { font-weight: 600; font-size: 13px; }
+.subtitle { color: var(--muted); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.switch { position: relative; width: 38px; height: 22px; flex: 0 0 auto; }
+.switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+  position: absolute; inset: 0; cursor: pointer;
+  background: #cfd4dc; border-radius: 22px; transition: background 0.15s;
+}
+.slider::before {
+  content: ""; position: absolute; width: 16px; height: 16px;
+  left: 3px; top: 3px; background: #fff; border-radius: 50%;
+  transition: transform 0.15s; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+.switch input:checked + .slider { background: var(--ok); }
+.switch input:checked + .slider::before { transform: translateX(16px); }
+
+.live {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+
+.live-row { display: flex; justify-content: space-between; gap: 10px; padding: 1px 0; }
+.live-label { color: var(--muted); }
+.live-value { text-align: right; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 210px; }
+.mono { font-family: Consolas, "Cascadia Mono", monospace; font-size: 11.5px; }
+
+.list { margin-bottom: 10px; }
+.list-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.03em;
+  color: var(--muted); margin-bottom: 5px;
+}
+
+.hosts { display: flex; flex-direction: column; gap: 4px; max-height: 168px; overflow-y: auto; overflow-x: hidden; }
+
+.host {
+  display: flex; align-items: center; justify-content: space-between; gap: 6px;
+  border: 1px solid var(--line); border-radius: 6px; padding: 5px 8px;
+  overflow: hidden;
+}
+.host-name { flex: 1 1 auto; min-width: 0; font-family: Consolas, "Cascadia Mono", monospace; font-size: 11px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.host-meta { flex: 0 0 auto; color: var(--muted); font-size: 10.5px; white-space: nowrap; }
+
+.host button {
+  flex: 0 0 auto;
+  border: 0; background: transparent; color: var(--accent);
+  font-size: 11px; cursor: pointer; padding: 2px 4px;
+}
+.host button:hover { text-decoration: underline; }
+
+.empty { color: var(--muted); font-size: 11.5px; padding: 6px 0; }
+
+.settings {
+  border-top: 1px solid var(--line);
+  padding-top: 9px;
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 10px; padding: 2px 0;
+}
+.row label { color: var(--fg); }
+.row input[type="number"] {
+  width: 64px; padding: 3px 6px; text-align: right;
+  border: 1px solid var(--line); border-radius: 5px; font: inherit;
+}
+
+.hint { color: var(--muted); font-size: 10.5px; margin-top: 6px; }
+.hint code { background: var(--card); padding: 0 3px; border-radius: 3px; }
+
+.actions { display: flex; gap: 8px; margin-bottom: 10px; }
+
+button.secondary, button.danger {
+  flex: 1; padding: 7px 8px; border-radius: 6px; cursor: pointer;
+  font: inherit; border: 1px solid var(--line); background: var(--card);
+}
+button.secondary:hover { border-color: #c7ccd4; }
+button.danger { color: var(--bad); }
+button.danger:hover { border-color: rgba(192, 57, 43, 0.4); }
+
+footer {
+  display: flex; justify-content: space-between; gap: 10px;
+  border-top: 1px solid var(--line); padding-top: 7px;
+  font-size: 10.5px;
+}
+.muted { color: var(--muted); }
