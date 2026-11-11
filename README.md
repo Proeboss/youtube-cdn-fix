@@ -14,10 +14,8 @@
 
 1. Нужна сборка [zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube/releases) версии **1.10.4**.
 2. Скопируй `general (ALT14).bat` в папку zapret — туда же, где лежат `general (ALT11).bat` и `service.bat`.
-3. Запусти `service.bat` → пункт `1` (Install Service) → выбери `general (ALT14).bat` (стоит сразу после ALT13).
+3. Запусти `service.bat` → пункт `1` (Install Service) → выбери `general (ALT14).bat`.
 4. Вверху меню появится `Strategy: general (ALT14)`. Служба перезапустится сама.
-
-Откат: `service.bat` → `1` → `general (ALT11).bat`.
 
 > Файл рассчитан на версию 1.10.4. На другой сборке может не запуститься — сначала обнови zapret.
 
