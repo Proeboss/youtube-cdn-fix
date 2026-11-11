@@ -31,3 +31,4 @@
 4. Нажми «Загрузить распакованное расширение» и выбери папку `yt-cdn-fix`
 
 
+`general (ALT14).bat` — модификация стратегии `general (ALT11).bat` из [zapret-discord-youtube](https://github.com/Flowseal/zapret-discord-youtube).
